@@ -1,0 +1,8 @@
+- path: qr
+  port: 6000
+  path_removal: false
+  geo_protected: false
+- path: downloads
+  port: 8000
+  path_removal: false
+  geo_protected: false
