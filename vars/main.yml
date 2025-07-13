@@ -1,0 +1,4 @@
+countries: "{{ lookup('file', 'vars/countries.yml') | from_yaml }}"
+route_branch: "{{ lookup('file', 'vars/branch.yml') | from_yaml }}"
+route_cnp: "{{ lookup('file', 'vars/country-not-participating.yml') | from_yaml }}"
+routes_common: "{{ lookup('file', 'vars/routes-common.yml') | from_yaml }}"
