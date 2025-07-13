@@ -1,0 +1,31 @@
+- name: Создать временный файл структуры
+  copy:
+    dest: /tmp/proxy_structure_test.txt
+    content: |
+      === Proxy Configuration Report ===
+
+      >> Countries:
+{% for item in countries %}
+      - ISO: {{ item.iso }}, Route: {{ item.route }}
+{% endfor %}
+
+      >> Route: branch
+      Path: {{ route_branch.path }}
+      Port: {{ route_branch.port }}
+      Path removal: {{ route_branch.path_removal }}
+      Geo protected: {{ route_branch.geo_protected }}
+
+      >> Route: country-not-participating
+      Path: {{ route_cnp.path }}
+      Port: {{ route_cnp.port }}
+      Geo protected: {{ route_cnp.geo_protected }}
+
+      >> Common Routes:
+{% for item in routes_common %}
+      - Path: {{ item.path }}
+        Port: {{ item.port }}
+        Path removal: {{ item.path_removal }}
+        Geo protected: {{ item.geo_protected }}
+{% endfor %}
+
+      ===================================
