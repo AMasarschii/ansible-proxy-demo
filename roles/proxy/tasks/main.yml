@@ -1,0 +1,17 @@
+- name: "Пробегаемся по странам"
+  debug:
+    msg: "Country {{ item.iso }}, route {{ item.route }}"
+  loop: "{{ countries }}"
+
+- name: "Маршрут branch"
+  debug:
+    msg: "Path: {{ route_branch.path }}, port: {{ route_branch.port }}"
+
+- name: "Страны не участвующие"
+  debug:
+    msg: "Path: {{ route_cnp.path }}, port: {{ route_cnp.port }}"
+
+- name: "Общие маршруты"
+  debug:
+    msg: "Path: {{ item.path }}, port: {{ item.port }}"
+  loop: "{{ routes_common }}"
